@@ -8,7 +8,7 @@ def notifications():
     if 'validationToken' in request.args:
         validation_token = request.args['validationToken']
         print(validation_token, 200, {'content-type': 'text/plain'})
-        return validation_token, 200, {'content-type': 'text/plain'}
+        return {"body":validation_token+' ' + 200 ' '+ {'content-type': 'text/plain'}}
     
     # Handle notifications
     notifications = request.json
@@ -21,5 +21,6 @@ def notifications():
 if __name__ == '__main__':
     # Run on port 5000 accessible externally or use ngrok for tunneling
     app.run(host='0.0.0.0', port=5000)
+
 
 
